@@ -24,12 +24,12 @@ def shape(x,y,size):
         goto(0,0)
         pendown()
         for j in range(10):
-            pencolor("red")
+            
             print(j)
             back(180)
             left(45)
         for k in range(15):
-            pencolor("Orange")
+            
             print(k)
             forward(300)
             left(100)
@@ -41,7 +41,7 @@ def calculator (x: int, y: int = 5, subtract = True) -> int:
     return x - y if subtract else x + y
             
 if __name__ == "__main__":
-    shape(0,0,50)
+    shape(0,0,10)
 
 
 
