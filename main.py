@@ -4,17 +4,20 @@ from ticket import*
 
 if __name__ == "__main__":
     tickets = []
-    ticket_counter = 2000;
-    ticket_amount=0
+    ticket_counter = 2000
+    ticket_created=0
+    ticket_solved=0
+    ticket_pending=0
 
-    t1=Ticket(ticket_counter, "ISAACE", "Isaac","ie@xtra.nz","diasohfaiosdhfiuo",)
-    tickets.append(t1)
-    ticket_counter +=1;
-    ticket_amount+=1
-    t2=Ticket(ticket_counter,"MarinaK","Marina","marina@gmail.com","HELP")
-    tickets.append(t2)
-    ticket_counter +=1;
-    ticket_amount+=1
+
+    # t1=Ticket(ticket_counter, "ISAACE", "Isaac","ie@xtra.nz","diasohfaiosdhfiuo",)
+    # tickets.append(t1)
+    # ticket_counter +=1
+    # ticket_created+=1
+    # t2=Ticket(ticket_counter,"MarinaK","Marina","marina@gmail.com","HELP")
+    # tickets.append(t2)
+    # ticket_counter +=1;
+    # ticket_created+=1
 
     def input_new_ticket():
         print("Enter the new ticket...")
@@ -58,7 +61,10 @@ if __name__ == "__main__":
             
     
     def display_stats():
-        print ("Amount of tickets: ",ticket_amount)
+        print ("Tickets created: ",ticket_created)
+        print("Tickets Resolved: ",ticket_solved)
+        print("Tickets to solve: ",ticket_pending)
+
 
     smenu = -1
     while smenu != "6":
@@ -75,14 +81,19 @@ if __name__ == "__main__":
         if smenu==1:
             input_new_ticket()
             ticket_counter+=1
-            ticket_amount+=1
+            ticket_created+=1
         elif smenu==2:
             display_tickets()
         elif smenu==3:
             responses()
+            ticket_solved+=1
+            ticket_pending=ticket_created-ticket_solved
         elif smenu==4:
             reopen()
+            ticket_solved-=1
+            ticket_pending+=1
         elif smenu==5:
+            ticket_pending=ticket_created-ticket_solved
             display_stats()
         elif smenu==6:
             print("")
